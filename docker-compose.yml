@@ -1,0 +1,15 @@
+# Put this file in ~/cam next to mediamtx.yml, then run:  docker compose up -d
+services:
+  mediamtx:
+    image: bluenviron/mediamtx:latest
+    container_name: mediamtx
+    restart: unless-stopped
+    ports:
+      - "1935:1935"   # RTMP ingest from the camera
+      - "8554:8554"   # RTSP viewing
+      - "8888:8888"   # HLS viewing (browser)
+    volumes:
+      - ./mediamtx.yml:/mediamtx.yml:ro
+      - ./recordings:/recordings
+    environment:
+      - TZ=Asia/Kolkata

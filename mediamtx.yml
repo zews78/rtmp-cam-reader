@@ -1,0 +1,33 @@
+logLevel: info
+
+rtmp: yes
+rtmpAddress: :1935
+rtsp: yes
+hls: yes
+webrtc: no
+srt: no
+
+pathDefaults:
+  record: yes
+  recordPath: ./recordings/%path/%Y-%m-%d_%H-%M-%S-%f%z
+  recordFormat: fmp4
+  recordSegmentDuration: 10m
+  recordDeleteAfter: 0s
+
+authMethod: internal
+authInternalUsers:
+  - user: camera
+    pass: abcde
+    ips: []
+    permissions:
+      - action: publish
+  - user: any
+    pass:
+    ips: ['127.0.0.1', '::1', '172.16.0.0/12']
+    permissions:
+      - action: read
+      - action: playback
+      - action: api
+
+paths:
+  cam1:

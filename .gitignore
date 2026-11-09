@@ -1,0 +1,15 @@
+.DS_Store
+recordings/
+upload.log
+upload.log.old
+*.mp4
+*.m4v
+*.mov
+*.ts
+*.m3u8
+*.part
+.env
+.env.*
+*.key
+*.pem
+*.crt
