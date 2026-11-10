@@ -30,4 +30,4 @@ authInternalUsers:
       - action: api
 
 paths:
-  cam1:
+  cam1: {}

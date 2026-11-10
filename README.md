@@ -110,6 +110,12 @@ Some cameras require one combined URL instead:
 rtmp://camera:<URL_ENCODED_PASSWORD>@<RECORDER_IP>:1935/cam1
 ```
 
+MediaMTX also accepts the RTMP username and password as query parameters. For
+this configuration, the camera URL
+`rtmp://<RECORDER_IP>:1935/cam1?user=camera&pass=<PASSWORD>` publishes to the
+`cam1` path. The `user` and `pass` values authenticate the publisher; they are
+not part of the stream path.
+
 Use the camera manufacturer's exact field format. The recorder's IP must be
 reachable from the camera, and TCP port `1935` must be allowed by the host
 firewall. If the camera is on another network, use a VPN or a properly
@@ -144,6 +150,11 @@ http://<RECORDER_IP>:8888/cam1/index.m3u8
 HLS is a playlist URL, not a standalone HTML page. Use an HLS-capable player
 or a small web page using `hls.js`. Do not expose port `8888` publicly without
 adding appropriate access control.
+
+The repository does not include a separate stream browsing UI. To check
+whether `cam1` is available, open the HLS URL in an HLS-capable player or use
+the RTSP URL in VLC. If the player says the stream is not found, first confirm
+that MediaMTX logs show a publisher connected to path `cam1`.
 
 ## 6. Configure cloud storage with rclone
 
